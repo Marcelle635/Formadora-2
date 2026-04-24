@@ -1,12 +1,4 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content [fullscreen]="true" forceOverscroll="false">
   <ion-card class="main-card">
     
     <div class="image-container">
@@ -34,16 +26,16 @@
         </div>
 
         <div class="keyword-section">
-          <p><strong>Palavra-chave:</strong> [Insira Aqui]</p>
+          <p><strong>Palavra-chave:</strong> [Sua Palavra]</p>
         </div>
       </div>
 
-     <div class="footer-action">
-  
-  <ion-button expand="block" shape="round" (click)="irParaTrajetoria()" class="custom-button">
-    Clique aqui
-  </ion-button>
-</div>
+      <div class="footer-action">
+        
+        <ion-button expand="block" shape="round" (click)="irParaTrajetoria()" class="custom-button">
+          Clique aqui
+        </ion-button>
+      </div>
     </ion-card-content>
 
   </ion-card>
