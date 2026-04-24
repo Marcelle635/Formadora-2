@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Color Change</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [style.--background]="bgColorPage" class="ion-padding">
+  
+  <div class="range-container">
+    <ion-item lines="none">
+      <ion-label slot="start" color="danger">R</ion-label>
+      <ion-range min="0" max="255" [(ngModel)]="redValue" color="danger"></ion-range>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label slot="start" color="success">G</ion-label>
+      <ion-range min="0" max="255" [(ngModel)]="greenValue" color="success"></ion-range>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label slot="start" color="primary">B</ion-label>
+      <ion-range min="0" max="255" [(ngModel)]="blueValue" color="primary"></ion-range>
+    </ion-item>
+  </div>
+
+  <div class="button-group">
+    <ion-button 
+      expand="block" 
+      shape="round" 
+      [style.--background]="colorBtn1" 
+      (click)="mudarCorBotao()">
+      1
+    </ion-button>
+
+    <ion-button 
+      expand="block" 
+      shape="round" 
+      (click)="mudarFundoTela()">
+      2
+    </ion-button>
+  </div>
+
+</ion-content>
