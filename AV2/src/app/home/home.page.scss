@@ -103,3 +103,8 @@ ion-content {
     font-size: 1rem;
   }
 }
+.custom-button {
+  position: relative;
+  z-index: 999; // Garante que o botão esteja no topo de tudo
+  pointer-events: auto; // Garante que ele aceite cliques
+}

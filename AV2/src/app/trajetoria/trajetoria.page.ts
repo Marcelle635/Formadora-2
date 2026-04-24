@@ -1,8 +1,17 @@
 import { Component } from '@angular/core';
 import { 
-  IonHeader, IonToolbar, IonTitle, IonContent, IonRange, IonButton, IonButtons, IonBackButton 
+  IonHeader, 
+  IonToolbar, 
+  IonTitle, 
+  IonContent, 
+  IonRange, 
+  IonButton, 
+  IonButtons, 
+  IonBackButton,
+  IonItem,   // ADICIONADO
+  IonLabel   // ADICIONADO
 } from '@ionic/angular/standalone';
-import { FormsModule } from '@angular/forms'; // Importante para o ngModel
+import { FormsModule } from '@angular/forms'; 
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,8 +20,18 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./trajetoria.page.scss'],
   standalone: true,
   imports: [
-    IonHeader, IonToolbar, IonTitle, IonContent, IonRange, 
-    IonButton, IonButtons, IonBackButton, FormsModule, CommonModule
+    IonHeader, 
+    IonToolbar, 
+    IonTitle, 
+    IonContent, 
+    IonRange, 
+    IonButton, 
+    IonButtons, 
+    IonBackButton, 
+    IonItem,   // ADICIONADO
+    IonLabel,  // ADICIONADO
+    FormsModule, 
+    CommonModule
   ],
 })
 export class TrajetoriaPage {
@@ -22,8 +41,8 @@ export class TrajetoriaPage {
   blueValue: number = 127;
 
   // Variáveis que controlarão as cores aplicadas
-  colorBtn1: string = '#0054e9'; // Cor inicial padrão
-  bgColorPage: string = '#ffffff'; // Fundo inicial branco
+  colorBtn1: string = '#0054e9'; 
+  bgColorPage: string = '#ffffff'; 
 
   constructor() {}
 
