@@ -8,8 +8,9 @@ import {
   IonButton, 
   IonButtons, 
   IonBackButton,
-  IonItem,   // ADICIONADO
-  IonLabel   // ADICIONADO
+  IonItem,
+  IonLabel,
+  NavController // Adicionado para navegação via código
 } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms'; 
 import { CommonModule } from '@angular/common';
@@ -28,31 +29,33 @@ import { CommonModule } from '@angular/common';
     IonButton, 
     IonButtons, 
     IonBackButton, 
-    IonItem,   // ADICIONADO
-    IonLabel,  // ADICIONADO
+    IonItem, 
+    IonLabel,
     FormsModule, 
     CommonModule
   ],
 })
 export class TrajetoriaPage {
-  // Variáveis para armazenar as cores (0 a 255)
   redValue: number = 127;
   greenValue: number = 127;
   blueValue: number = 127;
 
-  // Variáveis que controlarão as cores aplicadas
   colorBtn1: string = '#0054e9'; 
   bgColorPage: string = '#ffffff'; 
 
-  constructor() {}
+  // Injetando o NavController para o botão 3 poder voltar
+  constructor(private navCtrl: NavController) {}
 
-  // Botão 1: Altera a própria cor
   mudarCorBotao() {
     this.colorBtn1 = `rgb(${this.redValue}, ${this.greenValue}, ${this.blueValue})`;
   }
 
-  // Botão 2: Altera a cor de fundo da tela
   mudarFundoTela() {
     this.bgColorPage = `rgb(${this.redValue}, ${this.greenValue}, ${this.blueValue})`;
+  }
+
+  // Função para o Botão 3 retornar à Home
+  voltarParaHome() {
+    this.navCtrl.back();
   }
 }
