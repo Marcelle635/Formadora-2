@@ -69,3 +69,23 @@ ion-content {
   margin-top: 20px;
   height: 50px;
 }
+.keyword-container {
+  display: flex;
+  align-items: center;
+  min-height: 55px; // Força uma altura mínima para o clique
+  position: relative;
+  z-index: 999; // Garante que fique na frente de tudo
+
+  .custom-input {
+    --padding-start: 10px;
+    font-size: 0.9rem;
+    color: #444;
+    flex: 1;
+    height: 100%; // Ocupa toda a altura da div
+  }
+
+  ion-button {
+    --color: #7b1fa2;
+    margin: 0;
+  }
+}

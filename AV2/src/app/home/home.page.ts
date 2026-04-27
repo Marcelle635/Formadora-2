@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common'; 
+import { FormsModule } from '@angular/forms'; 
 import { 
   IonHeader, 
   IonToolbar, 
@@ -8,11 +10,19 @@ import {
   IonCard, 
   IonCardContent, 
   IonIcon, 
-  IonButton 
+  IonButton,
+  IonInput 
 } from '@ionic/angular/standalone';
-import { addIcons } from 'ionicons'; // Necessário para registrar os ícones
-import { schoolOutline, peopleOutline, locationOutline } from 'ionicons/icons';
-import { RouterModule } from '@angular/router'; // Importante para diretivas de link
+import { addIcons } from 'ionicons'; 
+import { 
+  schoolOutline, 
+  peopleOutline, 
+  locationOutline, 
+  keyOutline,      
+  sunnyOutline,
+  checkmarkOutline // Adicionado para o botão de confirmar
+} from 'ionicons/icons';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +30,8 @@ import { RouterModule } from '@angular/router'; // Importante para diretivas de 
   styleUrls: ['home.page.scss'],
   standalone: true,
   imports: [
+    CommonModule,
+    FormsModule,
     IonHeader, 
     IonToolbar, 
     IonTitle, 
@@ -28,27 +40,49 @@ import { RouterModule } from '@angular/router'; // Importante para diretivas de 
     IonCardContent, 
     IonIcon, 
     IonButton,
-    RouterModule // Permite o uso de routerLink no HTML, se desejar
+    IonInput,
+    RouterModule 
   ],
 })
 export class HomePage {
 
+  // Variáveis para a lógica da palavra-chave
+  tempPalavra: string = '';
+  palavraFixada: boolean = false;
+
   constructor(private router: Router) {
-    // Registra os ícones que estamos usando no HTML
-    addIcons({ schoolOutline, peopleOutline, locationOutline });
+    // Registra todos os ícones utilizados no projeto
+    addIcons({ 
+      schoolOutline, 
+      peopleOutline, 
+      locationOutline, 
+      keyOutline, 
+      sunnyOutline,
+      checkmarkOutline
+    });
   }
 
   /**
-   * Função para navegar até a página de trajetória.
-   * Usar navegação via TypeScript ajuda a identificar erros no console (F12).
+   * Fixa a palavra-chave e altera o estado da tela
+   */
+  fixarPalavra() {
+    if (this.tempPalavra && this.tempPalavra.trim().length > 0) {
+      console.log('Palavra confirmada:', this.tempPalavra);
+      this.palavraFixada = true;
+    } else {
+      console.warn('Campo vazio. Digite uma palavra antes de confirmar.');
+    }
+  }
+
+  /**
+   * Navegação para a página de trajetória
    */
   irParaTrajetoria() {
-    console.log('Iniciando navegação para a página de trajetória...');
     this.router.navigate(['/trajetoria']).then(sucesso => {
       if (sucesso) {
-        console.log('Navegação concluída com sucesso!');
+        console.log('Navegação OK');
       } else {
-        console.error('Falha na navegação. Verifique se a rota existe no app.routes.ts');
+        console.error('Erro na navegação: Verifique a rota no app.routes.ts');
       }
     });
   }
